@@ -22,9 +22,21 @@ const showPhoneDetail = (infos) => {
                 </div>
                 <h2 class="text-center">Name: ${phone.phone_name}</h2>
                 <h2 class="text-center">Brand: ${phone.brand}</h2>
-                <button onclick="" type="button" class="btn btn-info">Explore</button>
+                <button onclick="loadPhoneDetail('${phone.slug}')" type="button" class="btn btn-info">Explore</button>
             </div>
         `;
         phoneContainer.appendChild(div);
     }
+}
+
+const loadPhoneDetail = (details) => {
+    // console.log(details);
+    const url = `https://openapi.programming-hero.com/api/phone/${details}`;
+    fetch(url)
+    .then(res => res.json())
+    .then(data => phoneExplore(data.data));
+}
+
+const phoneExplore = (explore) => {
+    console.log(explore);
 }
