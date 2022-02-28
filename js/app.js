@@ -1,0 +1,1 @@
+document.getElementById('mobile-trapper').style.color = 'green';
