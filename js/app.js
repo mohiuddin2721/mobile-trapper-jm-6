@@ -34,9 +34,22 @@ const loadPhoneDetail = (details) => {
     const url = `https://openapi.programming-hero.com/api/phone/${details}`;
     fetch(url)
     .then(res => res.json())
-    .then(data => phoneExplore(data.data));
+    .then(data => displayPhoneDetail(data.data));
 }
 
-const phoneExplore = (explore) => {
-    console.log(explore);
+const displayPhoneDetail = (explore) => {
+    const displayContainer = document.getElementById('display-container');
+    const div = document.createElement('div');
+    div.innerHTML = `
+    <div class="card">
+        <div>
+            <img src="${explore.image}" alt="">
+        </div>
+        <h2>${explore.name}</h2>
+        <h3>${explore}</h3>
+        <h4>${explore}</h4>
+        <h4>${explore}</h4>
+    </div>
+    `;
+    displayContainer.appendChild(div);
 }
