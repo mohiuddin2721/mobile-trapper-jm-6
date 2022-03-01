@@ -22,12 +22,13 @@ const showPhoneDetail = (infos) => {
     // console.log(infos.length);
     const phoneContainer = document.getElementById('phone-container');
     phoneContainer.textContent = '';
+    document.getElementById('no-phone-message').style.display = 'none';
     if (infos.length == 0) {
         document.getElementById('no-phone-message').style.display = 'block';
     }
     else {
         for (const phone of infos) {
-            console.log(infos);
+            // console.log(infos);
             const div = document.createElement('div');
             div.classList.add('col');
             div.innerHTML = ` 
