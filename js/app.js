@@ -27,11 +27,11 @@ const showPhoneDetail = (infos) => {
         document.getElementById('no-phone-message').style.display = 'block';
     }
     else {
-        for (const phone of infos) {
-            // console.log(infos);
-            const div = document.createElement('div');
-            div.classList.add('col');
-            div.innerHTML = ` 
+        for (const phone of infos.slice(0, 20)) {
+            // console.log(phone);
+                const div = document.createElement('div');
+                div.classList.add('col');
+                div.innerHTML = ` 
                 <div class="card h-100">
                     <div class="text-center">
                         <img src="${phone.image}" alt="">
@@ -55,7 +55,6 @@ const loadPhoneDetail = (details) => {
 }
 
 const displayPhoneDetail = (explore) => {
-    // console.log(explore.mainFeatures);
     const phoneDetails = document.getElementById('phone-details');
     phoneDetails.textContent = '';
     const div = document.createElement('div');
@@ -66,7 +65,7 @@ const displayPhoneDetail = (explore) => {
     </div>
     <div class="card-body text-center">
       <h3 class="card-title">${explore.name}</h3>
-      <p class="card-text text-danger">Release Date: ${explore.releaseDate}</p>
+      <p class="card-text text-danger">Release Date: ${explore.releaseDate?explore.releaseDate: 'No release date'}</p>
       <div>
         <h3 class="text-center">Main Features</h3>
         <p class="card-text text-info">ChipSet: ${explore.mainFeatures.chipSet}</p>
