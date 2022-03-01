@@ -9,21 +9,36 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body id="main-body">
+
+    <!-------------------- head line ------------------->
+    
     <h1 id="mobile-trapper" class="text-center m-5 fw-bold fs-1">Mobile Trapper</h1>
     <div class="container">
+
+        <!--------------- phone search area ------------>
+
         <div class="input-group mb-3">
             <input id="input-search" type="text" class="form-control" placeholder="Search Phone" aria-label="Recipient's username" aria-describedby="button-addon2">
             <button id="search-btn" onclick="loadPhone()" class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
         </div>
+
+        <!--------------- error messages --------------->
+
         <div>
             <p id="error-message" class="text-danger fs-3">Something went wrong please type Phone Name to search input</p>
         </div>
         <div>
             <p id="no-phone-message" class="text-danger fs-3">No phone found please type others phone name</p>
         </div>
+
+        <!--------------- single phone details ----------->
+
         <div id="phone-details" class="w-75 mx-auto">
 
         </div>
+
+        <!--------------- phone search result ------------->
+
         <div id="phone-container" class="row row-cols-1 row-cols-md-3 g-4">
 
         </div>
