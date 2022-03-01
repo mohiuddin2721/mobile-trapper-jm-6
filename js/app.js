@@ -6,9 +6,6 @@ document.getElementById('no-phone-message').style.display = 'none';
 const loadPhone = () => {
     const inputSearch = document.getElementById('input-search').value;
 
-    //------------ clear data---------------
-
-    inputSearch.value = '';
     document.getElementById('error-message').style.display = 'none';
     if(inputSearch == '') {
         document.getElementById('error-message').style.display = 'block';
@@ -20,6 +17,9 @@ const loadPhone = () => {
         fetch(url)
         .then(res => res.json())
         .then(data => showPhoneDetail(data.data))
+
+        //------------ clear data---------------
+        document.getElementById('input-search').value = '';
     };
 };
 
@@ -100,4 +100,5 @@ const displayPhoneDetail = (explore) => {
     </div>
     `;
     phoneDetails.appendChild(div);
+    window.scrollTo(0, 100);
 };
