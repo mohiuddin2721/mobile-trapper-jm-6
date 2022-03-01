@@ -1,13 +1,13 @@
 document.getElementById('mobile-trapper').style.color = 'green';
 document.getElementById('main-body').style.backgroundColor = '#c6f3e4c4';
 document.getElementById('error-message').style.display = 'none';
+document.getElementById('no-phone-message').style.display = 'none';
 
 const loadPhone = () => {
     const inputSearch = document.getElementById('input-search').value;
     inputSearch.innerText = '';
     document.getElementById('error-message').style.display = 'none';
     if(inputSearch == '') {
-        // please wright something to display
         document.getElementById('error-message').style.display = 'block';
     }
     else {
@@ -18,29 +18,31 @@ const loadPhone = () => {
     } 
 }
 
-const displayError = error => {
-    document.getElementById('error-message').style.display = 'block';
-}
-
 const showPhoneDetail = (infos) => {
-    // console.log(infos);
+    // console.log(infos.length);
     const phoneContainer = document.getElementById('phone-container');
     phoneContainer.textContent = '';
-    for (const phone of infos) {
-        const div = document.createElement('div');
-        div.classList.add('col');
-        div.innerHTML = ` 
-            <div class="card h-100">
-                <div class="text-center">
-                    <img src="${phone.image}" alt="">
-                </div>
-                <h2 class="text-center">Name: ${phone.phone_name}</h2>
-                <h3 class="text-center">Brand: ${phone.brand}</h3>
-                <button onclick="loadPhoneDetail('${phone.slug}')" type="button" class="btn btn-info">Explore</button>
-            </div>
-        `;
-        phoneContainer.appendChild(div);
+    if (infos.length == 0) {
+        document.getElementById('no-phone-message').style.display = 'block';
     }
+    else {
+        for (const phone of infos) {
+            console.log(infos);
+            const div = document.createElement('div');
+            div.classList.add('col');
+            div.innerHTML = ` 
+                <div class="card h-100">
+                    <div class="text-center">
+                        <img src="${phone.image}" alt="">
+                    </div>
+                    <h2 class="text-center">Name: ${phone.phone_name}</h2>
+                    <h3 class="text-center">Brand: ${phone.brand}</h3>
+                    <button onclick="loadPhoneDetail('${phone.slug}')" type="button" class="btn btn-info">Explore</button>
+                </div>
+            `;
+            phoneContainer.appendChild(div);
+        }
+    }  
 }
 
 const loadPhoneDetail = (details) => {
@@ -52,7 +54,7 @@ const loadPhoneDetail = (details) => {
 }
 
 const displayPhoneDetail = (explore) => {
-    console.log(explore.mainFeatures);
+    // console.log(explore.mainFeatures);
     const phoneDetails = document.getElementById('phone-details');
     phoneDetails.textContent = '';
     const div = document.createElement('div');
