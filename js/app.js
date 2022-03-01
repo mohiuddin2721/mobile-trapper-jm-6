@@ -71,6 +71,7 @@ const loadPhoneDetail = (details) => {
 // ------------display single phone details-------------
 
 const displayPhoneDetail = (explore) => {
+    console.log(explore);
     const phoneDetails = document.getElementById('phone-details');
 
     // -----------previous data clear---------
@@ -86,16 +87,23 @@ const displayPhoneDetail = (explore) => {
     </div>
     <div class="card-body text-center">
       <h3 class="card-title">${explore.name}</h3>
-      <p class="card-text text-danger">Release Date: ${explore.releaseDate?explore.releaseDate: 'No release date'}</p>
+      <p class="card-text text-danger">Release Date:: ${explore.releaseDate?explore.releaseDate: 'No release date'}</p>
       <div>
         <h3 class="text-center">Main Features</h3>
-        <h5 class="card-text text-info">ChipSet: ${explore.mainFeatures.chipSet}</h5>
-        <h5 class="card-text text-info">DisplaySize: ${explore.mainFeatures.displaySize}</h5>
-        <h5 class="card-text text-info">Memory: ${explore.mainFeatures.memory}</h5>
+        <h5 class="card-text text-info">ChipSet:: ${explore.mainFeatures.chipSet}</h5>
+        <h5 class="card-text text-info">Storage:: ${explore.mainFeatures.storage}</h5>
+        <h5 class="card-text text-info">DisplaySize:: ${explore.mainFeatures.displaySize}</h5>
+        <h5 class="card-text text-info">Memory:: ${explore.mainFeatures.memory}</h5>
+        <h5 class="card-text text-info">Sensors:: ${explore.mainFeatures.sensors}</h5>
       </div>
       <div>
         <h3 class="text-center">Others</h3>
-        <h5 class="card-text text-info">${explore.mainFeatures.sensors}</h5>
+        <h5 class="card-text text-info">Bluetooth:: ${explore.others.Bluetooth}</h5>
+        <h5 class="card-text text-info">GPS:: ${explore.others.GPS}</h5>
+        <h5 class="card-text text-info">NFC:: ${explore.others.NFC}</h5>
+        <h5 class="card-text text-info">Radio:: ${explore.others.Radio}</h5>
+        <h5 class="card-text text-info">USB:: ${explore.others.USB}</h5>
+        <h5 class="card-text text-info">WLAN:: ${explore.others.WLAN}</h5>
       </div>
     </div>
     `;
